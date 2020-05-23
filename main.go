@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"google-rtb/config"
 	"google-rtb/pkg/logger"
 	r "google-rtb/router"
@@ -13,6 +14,7 @@ func main() {
 	router := r.GetRouter()
 
 	err := router.Run(r.GetPort())
+	fmt.Println("New version starting....")
 
 	if err != nil {
 		params := &logger.LogParams{}
