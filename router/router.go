@@ -1,13 +1,14 @@
 package router
 
 import (
-	"github.com/gin-gonic/gin"
 	"google-rtb/api"
 	"google-rtb/config"
+
+	"github.com/gin-gonic/gin"
 )
 
 func GetRouter() *gin.Engine {
-	r := gin.New()
+	r := gin.Default()
 
 	r.GET("/", api.StatusCheck)
 	r.POST("api/rtb", api.RtbListener)

@@ -1,11 +1,13 @@
 package api
 
 import (
-	"github.com/gin-gonic/gin"
 	"google-rtb/model"
 	"google-rtb/pkg/logger"
+	"google-rtb/pkg/svc/bidder"
 	"google-rtb/pkg/svc/streamer"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func RtbListener(c *gin.Context) {
@@ -23,6 +25,8 @@ func RtbListener(c *gin.Context) {
 	}
 
 	go streamer.ProcessRequestBody(requestBody)
+
+	go bidder.SendBidRequest(requestBody)
 
 	c.JSON(http.StatusOK, requestBody)
 }

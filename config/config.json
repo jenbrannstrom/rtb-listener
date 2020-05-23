@@ -16,5 +16,6 @@
     "S3": {
       "Bucket": "google-rtb-production-us-east-1"
     }
-  }
+  },
+  "BidURL": "http://edgargo-app.rtb.adp3.net"
 }
