@@ -8,7 +8,7 @@
     "Level": "info"
   },
   "FileUploader": {
-    "ChunkSize": 2,
+    "ChunkSize": 10000,
     "LocalStorageDir": "data"
   },
   "AWS": {
