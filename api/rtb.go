@@ -6,6 +6,7 @@ import (
 	"google-rtb/model"
 	"google-rtb/pkg/logger"
 	"google-rtb/pkg/svc/bidder"
+	"google-rtb/pkg/svc/streamer"
 	"net/http"
 	"time"
 
@@ -27,7 +28,7 @@ func RtbListener(c *gin.Context) {
 		return
 	}
 
-	// go streamer.ProcessRequestBody(requestBody)
+	go streamer.ProcessRequestBody(requestBody)
 
 	go bidder.SendBidRequest(requestBody)
 
