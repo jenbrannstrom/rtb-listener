@@ -3,7 +3,7 @@ package bidder
 import (
 	"bytes"
 	"encoding/json"
-	"google-rtb/config"
+	"fmt"
 	"google-rtb/model"
 	"google-rtb/pkg/logger"
 	"io/ioutil"
@@ -11,7 +11,8 @@ import (
 )
 
 // SendBidRequest sends bid request from google to bid url
-func SendBidRequest(requestBody model.RequestBody) {
+func SendBidRequest(url string, requestBody model.RequestBody) {
+	fmt.Println(url)
 	jsonContent, err := json.Marshal(requestBody)
 	if err != nil {
 		params := &logger.LogParams{}
@@ -21,7 +22,7 @@ func SendBidRequest(requestBody model.RequestBody) {
 		return
 	}
 
-	resp, err := http.Post(config.Cfg.BidURL, "application/json", bytes.NewBuffer(jsonContent))
+	resp, err := http.Post(url, "application/json", bytes.NewBuffer(jsonContent))
 	if err != nil {
 		params := &logger.LogParams{}
 		params.Add("reason:", err)

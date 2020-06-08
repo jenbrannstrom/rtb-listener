@@ -17,5 +17,14 @@
       "Bucket": "google-rtb-production-us-east-1"
     }
   },
-  "BidURL": "http://edgargo-app.rtb.adp3.net"
+  "BidURL": [
+    {
+      "BillingID": "104602012074",
+      "URL": "http://eprtb.srvmda.com:12469/auctions"
+    },
+    {
+      "BillingID": "72245759413",
+      "URL": "http://edgargo-app.rtb.adp3.net"
+    }
+  ]
 }

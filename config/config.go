@@ -14,7 +14,12 @@ type Config struct {
 	FileUploader         FileUploader
 	AWS                  AWS
 	Logger               Logger
-	BidURL               string
+	BidURL               []BidURLObject
+}
+
+type BidURLObject struct {
+	BillingID string
+	URL       string
 }
 
 type ServerConfigurations struct {

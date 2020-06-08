@@ -3,10 +3,12 @@ package api
 import (
 	"encoding/json"
 	"fmt"
+	"google-rtb/config"
 	"google-rtb/model"
 	"google-rtb/pkg/logger"
 	"google-rtb/pkg/svc/bidder"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -28,8 +30,14 @@ func RtbListener(c *gin.Context) {
 	}
 
 	// go streamer.ProcessRequestBody(requestBody)
+	b, _ := json.Marshal(requestBody)
+	sr := string(b)
 
-	go bidder.SendBidRequest(requestBody)
+	for _, v := range config.Cfg.BidURL {
+		if strings.Contains(sr, v.BillingID) {
+			go bidder.SendBidRequest(v.URL, requestBody)
+		}
+	}
 
 	c.JSON(http.StatusOK, requestBody)
 }
