@@ -40,9 +40,11 @@ func SendBidRequest(url string, requestBody model.RequestBody) {
 		logger.ErrorP("unable to read response:", params)
 	}
 
-	params := &logger.LogParams{}
-	params.Add("response:", string(body))
-	logger.InfoP("getting response", params)
-
+	if len(body) > 0 {
+		params := &logger.LogParams{}
+		params.Add("url:", url)
+		params.Add("response:", string(body))
+		logger.InfoP("getting response", params)
+	}
 	return
 }

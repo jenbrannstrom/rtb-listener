@@ -39,7 +39,7 @@ func RtbListener(c *gin.Context) {
 		}
 	}
 
-	c.JSON(http.StatusOK, requestBody)
+	c.JSON(http.StatusOK, "Request sent")
 }
 
 // RtbListenCheck test send request
