@@ -35,11 +35,9 @@ func RtbListener(c *gin.Context) {
 
 	for _, v := range config.Cfg.BidURL {
 		if strings.Contains(sr, v.BillingID) {
-			go bidder.SendBidRequest(v.URL, requestBody)
+			bidder.SendBidRequest(c, v.URL, requestBody)
 		}
 	}
-
-	c.JSON(http.StatusOK, "Request sent")
 }
 
 // RtbListenCheck test send request
