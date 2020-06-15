@@ -45,10 +45,9 @@ func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
 		_ = json.Unmarshal(body, &res)
 		c.Header("Content-Type", "application/octet-stream")
 		c.JSON(http.StatusOK, res)
-
 		params := &logger.LogParams{}
-		params.Add("url:", url)
-		params.Add("response:", string(body))
+		params.Add("anurl:", url)
+		params.Add("status:", 200)
 		logger.InfoP("getting response", params)
 	}
 	return
