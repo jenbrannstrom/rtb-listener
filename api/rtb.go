@@ -29,6 +29,9 @@ func RtbListener(c *gin.Context) {
 		return
 	}
 
+	params := &logger.LogParams{}
+	logger.ErrorP("receive request: ", params)
+
 	// go streamer.ProcessRequestBody(requestBody)
 	b, _ := json.Marshal(requestBody)
 	sr := string(b)
