@@ -7,6 +7,7 @@ import (
 	"google-rtb/pkg/logger"
 	"google-rtb/pkg/svc/streamer"
 	"io/ioutil"
+	"math/rand"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -14,6 +15,9 @@ import (
 
 // SendBidRequest sends bid request from google to bid url
 func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
+	if rand.Float32() > 0.5 {
+		return
+	}
 	var res model.RequestBody
 	jsonContent, err := json.Marshal(requestBody)
 	if err != nil {
