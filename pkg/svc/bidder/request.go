@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"google-rtb/model"
 	"google-rtb/pkg/logger"
+	"google-rtb/pkg/svc/streamer"
 	"io/ioutil"
 	"math/rand"
 	"net/http"
@@ -49,7 +50,7 @@ func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
 		_ = json.Unmarshal(body, &res)
 		c.Header("Content-Type", "application/octet-stream")
 		c.JSON(http.StatusOK, res)
-		// go streamer.ProcessRequestBody(res)
+		go streamer.ProcessRequestBody(res)
 
 		params := &logger.LogParams{}
 		params.Add("anurl:", url)
