@@ -8,7 +8,6 @@ import (
 	"google-rtb/pkg/logger"
 	"google-rtb/pkg/svc/bidder"
 	"net/http"
-	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -30,13 +29,14 @@ func RtbListener(c *gin.Context) {
 	}
 
 	// go streamer.ProcessRequestBody(requestBody)
-	b, _ := json.Marshal(requestBody)
-	sr := string(b)
+	// b, _ := json.Marshal(requestBody)
+	// sr := string(b)
 
 	for _, v := range config.Cfg.BidURL {
-		if strings.Contains(sr, v.BillingID) {
-			bidder.SendBidRequest(c, v.URL, requestBody)
-		}
+		// if strings.Contains(sr, v.BillingID) {
+		// 	bidder.SendBidRequest(c, v.URL, requestBody)
+		// }
+		bidder.SendBidRequest(c, v.URL, requestBody)
 	}
 }
 
