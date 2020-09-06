@@ -36,6 +36,10 @@ func RtbListener(c *gin.Context) {
 		// if strings.Contains(sr, v.BillingID) {
 		// 	bidder.SendBidRequest(c, v.URL, requestBody)
 		// }
+		paramss := &logger.LogParams{}
+		paramss.Add("url:", v.URL)
+		paramss.Add("requestBody:", requestBody)
+		logger.ErrorP("get receive", paramss)
 		bidder.SendBidRequest(c, v.URL, requestBody)
 	}
 }
