@@ -28,6 +28,10 @@ func RtbListener(c *gin.Context) {
 		return
 	}
 
+	b, _ := json.Marshal(c.Request)
+
+	fmt.Println("request header:", string(b))
+
 	// go streamer.ProcessRequestBody(requestBody)
 	// b, _ := json.Marshal(requestBody)
 	// sr := string(b)
