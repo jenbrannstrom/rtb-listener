@@ -6,7 +6,6 @@ import (
 	"google-rtb/model"
 	"google-rtb/pkg/logger"
 	"io/ioutil"
-	"math/rand"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -14,18 +13,8 @@ import (
 
 // SendBidRequest sends bid request from google to bid url
 func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
-	if rand.Float32() > 0.5 {
-		return
-	}
 	var res model.RequestBody
 	jsonContent, err := json.Marshal(requestBody)
-
-	// this is for test
-	paramss := &logger.LogParams{}
-	paramss.Add("url:", url)
-	paramss.Add("requestBody:", string(jsonContent))
-	logger.ErrorP("checking to send:", paramss)
-
 	if err != nil {
 		params := &logger.LogParams{}
 		params.Add("reason:", err)
@@ -57,11 +46,6 @@ func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
 		c.Header("Content-Type", "application/octet-stream")
 		c.JSON(http.StatusOK, res)
 		// go streamer.ProcessRequestBody(res)
-
-		params := &logger.LogParams{}
-		params.Add("anurl:", url)
-		params.Add("status:", 200)
-		logger.InfoP("getting response", params)
 	}
 	return
 }
