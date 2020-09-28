@@ -16,26 +16,20 @@ import (
 // RtbListener listen all request coming
 func RtbListener(c *gin.Context) {
 	var requestBody model.RequestBody
+	c.Writer.Header().Set("Connection", "close")
+	defer c.Request.Body.Close()
 
 	err := c.BindJSON(&requestBody)
-
 	if err != nil {
 		params := &logger.LogParams{}
 		params.Add("reason:", err)
 		params.Add("requestBody:", requestBody)
 		logger.ErrorP("unable to parse requestBody:", params)
-
+		c.JSON(http.StatusOK, "ignore")
 		return
 	}
 
-	// go streamer.ProcessRequestBody(requestBody)
-	// b, _ := json.Marshal(requestBody)
-	// sr := string(b)
-
 	for _, v := range config.Cfg.BidURL {
-		// if strings.Contains(sr, v.BillingID) {
-		// 	bidder.SendBidRequest(c, v.URL, requestBody)
-		// }
 		bidder.SendBidRequest(c, v.URL, requestBody)
 	}
 }

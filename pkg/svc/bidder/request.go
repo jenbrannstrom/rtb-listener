@@ -19,6 +19,7 @@ func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
 		params := &logger.LogParams{}
 		params.Add("reason:", err)
 		logger.ErrorP("unable to parse requestBody:", params)
+		c.JSON(http.StatusOK, "ignore")
 		return
 	}
 
@@ -27,6 +28,7 @@ func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
 		params := &logger.LogParams{}
 		params.Add("reason:", err)
 		logger.ErrorP("unable to send requestBody:", params)
+		c.JSON(http.StatusOK, "ignore")
 		return
 	}
 
@@ -37,6 +39,8 @@ func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
 		params := &logger.LogParams{}
 		params.Add("reason:", err)
 		logger.ErrorP("unable to read response:", params)
+		c.JSON(http.StatusOK, "ignore")
+		return
 	}
 
 	if len(body) > 0 {

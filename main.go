@@ -4,6 +4,9 @@ import (
 	"google-rtb/config"
 	"google-rtb/pkg/logger"
 	r "google-rtb/router"
+	"log"
+	"net/http"
+	"time"
 )
 
 func main() {
@@ -11,12 +14,14 @@ func main() {
 	logger.Init()
 
 	router := r.GetRouter()
-
-	err := router.Run(r.GetPort())
-
-	if err != nil {
-		params := &logger.LogParams{}
-		params.Add("reason:", err)
-		logger.ErrorP("unable to start service:", params)
+	s := &http.Server{
+		Addr:           r.GetPort(),
+		Handler:        router,
+		ReadTimeout:    10 * time.Second,
+		WriteTimeout:   10 * time.Second,
+		MaxHeaderBytes: 1 << 20,
 	}
+	s.SetKeepAlivesEnabled(false)
+	log.Printf("Listening on port %s", r.GetPort())
+	log.Fatal(s.ListenAndServe())
 }
