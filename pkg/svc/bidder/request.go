@@ -18,7 +18,6 @@ func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
 	if err != nil {
 		params := &logger.LogParams{}
 		params.Add("reason:", err)
-		params.Add("requestBody:", requestBody)
 		logger.ErrorP("unable to parse requestBody:", params)
 		return
 	}
@@ -27,7 +26,6 @@ func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
 	if err != nil {
 		params := &logger.LogParams{}
 		params.Add("reason:", err)
-		params.Add("requestBody:", requestBody)
 		logger.ErrorP("unable to send requestBody:", params)
 		return
 	}
@@ -46,6 +44,9 @@ func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
 		c.Header("Content-Type", "application/octet-stream")
 		c.JSON(http.StatusOK, res)
 		// go streamer.ProcessRequestBody(res)
+	} else {
+		c.Header("Content-Type", "application/octet-stream")
+		c.JSON(http.StatusOK, "ignore")
 	}
 	return
 }
