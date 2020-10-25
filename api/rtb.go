@@ -29,6 +29,10 @@ func RtbListener(c *gin.Context) {
 		return
 	}
 
+	params := &logger.LogParams{}
+	params.Add("requestBody:", requestBody)
+	logger.ErrorP("received requestBody:", params)
+
 	for _, v := range config.Cfg.BidURL {
 		bidder.SendBidRequest(c, v.URL, requestBody)
 	}
