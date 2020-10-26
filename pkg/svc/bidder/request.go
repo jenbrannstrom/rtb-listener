@@ -14,6 +14,12 @@ import (
 // SendBidRequest sends bid request from google to bid url
 func SendBidRequest(c *gin.Context, url string, requestBody model.RequestBody) {
 	var res model.RequestBody
+
+	params := &logger.LogParams{}
+	params.Add("url:", url)
+	params.Add("requestBody:", requestBody)
+	logger.ErrorP("sending requestBody:", params)
+
 	jsonContent, err := json.Marshal(requestBody)
 	if err != nil {
 		params := &logger.LogParams{}
