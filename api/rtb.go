@@ -16,6 +16,7 @@ import (
 // RtbListener listen all request coming
 func RtbListener(c *gin.Context) {
 	var requestBody model.RequestBody
+	var res *model.RequestBody
 	c.Writer.Header().Set("Connection", "close")
 	defer c.Request.Body.Close()
 
@@ -30,8 +31,18 @@ func RtbListener(c *gin.Context) {
 	}
 
 	for _, v := range config.Cfg.BidURL {
-		bidder.SendBidRequest(c, v.URL, requestBody)
+		result := bidder.SendBidRequest(v.URL, requestBody)
+		if result != nil {
+			res = result
+		}
 	}
+
+	if res != nil {
+		c.Header("Content-Type", "application/octet-stream")
+		c.JSON(http.StatusOK, res)
+		return
+	}
+	c.JSON(http.StatusOK, "ignore")
 }
 
 // RtbListenCheck test send request
