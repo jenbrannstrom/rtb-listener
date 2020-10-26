@@ -13,6 +13,9 @@ import (
 func SendBidRequest(url string, requestBody model.RequestBody) *model.RequestBody {
 	var res *model.RequestBody
 	jsonContent, _ := json.Marshal(requestBody)
+	params := &logger.LogParams{}
+	params.Add("request:", requestBody)
+	logger.ErrorP("receiving request", params)
 
 	resp, err := http.Post(url, "application/json", bytes.NewBuffer(jsonContent))
 	if err != nil {
