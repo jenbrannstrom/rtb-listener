@@ -1,1 +1,72 @@
-<mxfile host="app.diagrams.net" modified="2020-09-10T17:48:58.391Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" version="13.6.9" etag="mzZAPF4Nr8VqjWk3Q1Zi" type="github"><diagram id="NnGSMo3gBgN7fQLKMEAp">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-10-30T18:25:01.454Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="n1LY32LFm_R_P0NzHglj" version="13.6.9" type="github">
+  <diagram id="NnGSMo3gBgN7fQLKMEAp" name="Page-1">
+    <mxGraphModel dx="1102" dy="592" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-1" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="240" y="70" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-2" value="&lt;span style=&quot;font-size: 16px&quot;&gt;SENDER&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="100" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-3" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#FF0000;strokeWidth=3;" edge="1" parent="1" source="zaVHZXXhPzDcsD_a5JRX-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="230" as="sourcePoint" />
+            <mxPoint x="270" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-4" value="" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="220" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-5" value="&lt;span style=&quot;font-size: 16px&quot;&gt;GO Splitter&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="310" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-6" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="310" y="360" as="sourcePoint" />
+            <mxPoint x="200" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-7" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#FF0000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="310" y="360" as="sourcePoint" />
+            <mxPoint x="390" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="&lt;font style=&quot;font-size: 15px&quot;&gt;&lt;b&gt;https://rtbflag.com/...&lt;/b&gt;&lt;/font&gt;" link="https://rtbflag.com/api/rtb" id="zaVHZXXhPzDcsD_a5JRX-8">
+          <mxCell style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+            <mxGeometry x="210" y="256" width="160" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-9" value="" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="110" y="430" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-10" value="http://example.rtb.adp3.net/" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="390" y="440" width="360" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-11" value="BIDDER&lt;br&gt;(Platform.io)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="470" y="410" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-12" value="" style="endArrow=classic;html=1;fontSize=22;strokeWidth=5;strokeColor=#33FF33;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="430" as="sourcePoint" />
+            <mxPoint x="360" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-13" value="&lt;span style=&quot;font-size: 16px&quot;&gt;RESPONSES&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=30;" vertex="1" parent="1">
+          <mxGeometry x="410" y="350" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-14" value="" style="endArrow=classic;html=1;fontSize=22;strokeWidth=5;exitX=0.625;exitY=-0.1;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#33FF33;" edge="1" parent="1" source="zaVHZXXhPzDcsD_a5JRX-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="256" as="sourcePoint" />
+            <mxPoint x="300" y="146" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zaVHZXXhPzDcsD_a5JRX-15" value="&lt;span style=&quot;font-size: 16px&quot;&gt;Storage or other endpoint&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="460" width="90" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
