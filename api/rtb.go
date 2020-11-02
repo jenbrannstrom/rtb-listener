@@ -29,24 +29,18 @@ func RtbListener(c *gin.Context) {
 		c.JSON(http.StatusOK, "ignore")
 		return
 	}
-	go func() {
-		for _, v := range config.Cfg.BidURL {
-			result := bidder.SendBidRequest(v.URL, requestBody)
-			if result != nil {
-				res = result
-			}
+	for _, v := range config.Cfg.BidURL {
+		result := bidder.SendBidRequest(v.URL, requestBody)
+		if result != nil {
+			res = result
 		}
+	}
 
-		if res != nil {
-			params := &logger.LogParams{}
-			params.Add("response:", res)
-			logger.ErrorP("Bid Response Received", params)
-			// c.Header("Content-Type", "application/octet-stream")
-			// c.JSON(http.StatusOK, res)
-			return
-		}
-	}()
-
+	if res != nil {
+		c.Header("Content-Type", "application/octet-stream")
+		c.JSON(http.StatusOK, res)
+		return
+	}
 	c.JSON(http.StatusOK, "successs")
 }
 
