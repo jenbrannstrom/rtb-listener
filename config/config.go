@@ -15,6 +15,7 @@ type Config struct {
 	AWS                  AWS
 	Logger               Logger
 	BidURL               []BidURLObject
+	S3Stream             bool
 }
 
 type BidURLObject struct {

@@ -7,6 +7,7 @@ import (
 	"google-rtb/model"
 	"google-rtb/pkg/logger"
 	"google-rtb/pkg/svc/bidder"
+	"google-rtb/pkg/svc/streamer"
 	"net/http"
 	"time"
 
@@ -29,6 +30,13 @@ func RtbListener(c *gin.Context) {
 		c.JSON(http.StatusOK, "ignore")
 		return
 	}
+
+	if config.Cfg.S3Stream == true {
+		go func() {
+			streamer.ProcessRequestBody(requestBody)
+		}()
+	}
+
 	for _, v := range config.Cfg.BidURL {
 		result := bidder.SendBidRequest(v.URL, requestBody)
 		if result != nil {

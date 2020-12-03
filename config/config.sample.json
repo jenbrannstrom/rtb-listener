@@ -17,6 +17,7 @@
       "Bucket": "google-rtb-production-us-east-1"
     }
   },
+  "S3Stream": false,
   "BidURL": [
     {
       "BillingID": "104602012074",
