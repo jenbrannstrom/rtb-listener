@@ -31,10 +31,6 @@ func RtbListener(c *gin.Context) {
 		return
 	}
 
-	params := &logger.LogParams{}
-	params.Add("requestBody:", requestBody)
-	logger.ErrorP("testing request comming:", params)
-
 	if config.Cfg.S3Stream == true {
 		go func() {
 			streamer.ProcessRequestBody(requestBody)
