@@ -9,6 +9,7 @@ import (
 	"google-rtb/pkg/svc/bidder"
 	"google-rtb/pkg/svc/streamer"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -37,10 +38,15 @@ func RtbListener(c *gin.Context) {
 		}()
 	}
 
+	b, _ := json.Marshal(requestBody)
+	sr := string(b)
+
 	for _, v := range config.Cfg.BidURL {
-		result := bidder.SendBidRequest(v.URL, requestBody)
-		if result != nil {
-			res = result
+		if v.BillingID == "" || strings.Contains(sr, v.BillingID) {
+			result := bidder.SendBidRequest(v.URL, requestBody)
+			if result != nil {
+				res = result
+			}
 		}
 	}
 
