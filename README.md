@@ -2,7 +2,11 @@
 Project is written using `go1.13.3` and [Gin](https://github.com/gin-gonic/gin) framework. 
 
 ## About
-This app streams Real-Time Bidding data from google to AWS S3 bucket.
+This app streams Real-Time Bidding data from Google's Authorized Buyers (formerly Google AdX) and splits it into two streams. 
+If you want to closely monitor in near real-time the data coming from an RTB exchange.
+It can also stream straight into an AWS S3 bucket, in JSON.
+This app has been successfully tested on Google Auth Buyers, AOL and some other smaller exchanges.
+
 
 ## Configuration
 All configs are in `config/config.json` file.  
